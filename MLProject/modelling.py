@@ -40,14 +40,6 @@ def save_confusion_matrix(y_true, y_pred):
 
 
 def main(train_path, test_path, max_iter):
-    dagshub.init(
-        repo_owner="LightDani", repo_name="SMSML_Dwi-Cahya-Nur-Faizi", mlflow=True
-    )
-    mlflow.set_tracking_uri(
-        "https://dagshub.com/LightDani/SMSML_Dwi-Cahya-Nur-Faizi.mlflow"
-    )
-    mlflow.set_experiment("Default_LogReg_Model")
-
     data_train = pd.read_csv(train_path)
     data_test = pd.read_csv(test_path)
 
