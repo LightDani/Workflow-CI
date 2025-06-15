@@ -5,7 +5,6 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import dagshub
 import mlflow
 import pandas as pd
 from mlflow.models.signature import infer_signature
@@ -83,12 +82,12 @@ def main(train_path, test_path, max_iter):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--train_path"
-    )  # , type=str, default="personality_preprocessing/train.csv")
+        "--train_path", type=str, default="personality_preprocessing/train.csv"
+    )
     parser.add_argument(
-        "--test_path"
-    )  # , type=str, default="personality_preprocessing/test.csv")
-    parser.add_argument("--max_iter")  # , type=int, default=1000)
+        "--test_path", type=str, default="personality_preprocessing/test.csv"
+    )
+    parser.add_argument("--max_iter", type=int, default=1000)
     args = parser.parse_args()
 
     main(args.train_path, args.test_path, args.max_iter)
