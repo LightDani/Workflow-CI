@@ -40,8 +40,12 @@ def save_confusion_matrix(y_true, y_pred):
 
 
 def main(train_path, test_path, max_iter):
-    dagshub.init(repo_owner="LightDani", repo_name="SMSML_Dwi-Cahya-Nur-Faizi", mlflow=True)
-    mlflow.set_tracking_uri("https://dagshub.com/LightDani/SMSML_Dwi-Cahya-Nur-Faizi.mlflow")
+    dagshub.init(
+        repo_owner="LightDani", repo_name="SMSML_Dwi-Cahya-Nur-Faizi", mlflow=True
+    )
+    mlflow.set_tracking_uri(
+        "https://dagshub.com/LightDani/SMSML_Dwi-Cahya-Nur-Faizi.mlflow"
+    )
     mlflow.set_experiment("Default_LogReg_Model")
 
     data_train = pd.read_csv(train_path)
@@ -86,9 +90,13 @@ def main(train_path, test_path, max_iter):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--train_path", type=str, default="personality_preprocessing/train.csv")
-    parser.add_argument("--test_path", type=str, default="personality_preprocessing/test.csv")
-    parser.add_argument("--max_iter", type=int, default=1000)
+    parser.add_argument(
+        "--train_path"
+    )  # , type=str, default="personality_preprocessing/train.csv")
+    parser.add_argument(
+        "--test_path"
+    )  # , type=str, default="personality_preprocessing/test.csv")
+    parser.add_argument("--max_iter")  # , type=int, default=1000)
     args = parser.parse_args()
 
     main(args.train_path, args.test_path, args.max_iter)
