@@ -42,9 +42,9 @@ def main(train_path, test_path, max_iter):
     data_train = pd.read_csv(train_path)
     data_test = pd.read_csv(test_path)
 
-    X_train = data_train.iloc[:, :-1]
+    X_train = data_train.drop(columns=["Personality"])
     y_train = data_train["Personality"]
-    X_test = data_test.iloc[:, :-1]
+    X_test = data_test.drop(columns=["Personality"])
     y_test = data_test["Personality"]
 
     model = LogisticRegression(max_iter=max_iter)
